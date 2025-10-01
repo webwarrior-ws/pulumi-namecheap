@@ -4,7 +4,7 @@
 using System;
 using System.Collections.Immutable;
 
-namespace Pulumi.Xyz
+namespace Pulumi.Namecheap
 {
     public static class Config
     {
@@ -30,16 +30,56 @@ namespace Pulumi.Xyz
             }
         }
 
-        private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("xyz");
+        private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("namecheap");
 
-        private static readonly __Value<Pulumi.Xyz.Region.Region?> _region = new __Value<Pulumi.Xyz.Region.Region?>(() => __config.GetObject<Pulumi.Xyz.Region.Region>("region"));
+        private static readonly __Value<string?> _apiKey = new __Value<string?>(() => __config.Get("apiKey"));
         /// <summary>
-        /// A region which should be used.
+        /// The namecheap API key
         /// </summary>
-        public static Pulumi.Xyz.Region.Region? Region
+        public static string? ApiKey
         {
-            get => _region.Get();
-            set => _region.Set(value);
+            get => _apiKey.Get();
+            set => _apiKey.Set(value);
+        }
+
+        private static readonly __Value<string?> _apiUser = new __Value<string?>(() => __config.Get("apiUser"));
+        /// <summary>
+        /// A registered api user for namecheap
+        /// </summary>
+        public static string? ApiUser
+        {
+            get => _apiUser.Get();
+            set => _apiUser.Set(value);
+        }
+
+        private static readonly __Value<string?> _clientIp = new __Value<string?>(() => __config.Get("clientIp"));
+        /// <summary>
+        /// Client IP address
+        /// </summary>
+        public static string? ClientIp
+        {
+            get => _clientIp.Get();
+            set => _clientIp.Set(value);
+        }
+
+        private static readonly __Value<bool?> _useSandbox = new __Value<bool?>(() => __config.GetBoolean("useSandbox"));
+        /// <summary>
+        /// Use sandbox API endpoints
+        /// </summary>
+        public static bool? UseSandbox
+        {
+            get => _useSandbox.Get();
+            set => _useSandbox.Set(value);
+        }
+
+        private static readonly __Value<string?> _userName = new __Value<string?>(() => __config.Get("userName"));
+        /// <summary>
+        /// A registered user name for namecheap
+        /// </summary>
+        public static string? UserName
+        {
+            get => _userName.Get();
+            set => _userName.Set(value);
         }
 
     }

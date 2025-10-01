@@ -7,17 +7,42 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Xyz
+namespace Pulumi.Namecheap
 {
     /// <summary>
-    /// The provider type for the xyz package. By default, resources use package-wide configuration
+    /// The provider type for the namecheap package. By default, resources use package-wide configuration
     /// settings, however an explicit `Provider` instance may be created and passed during resource
     /// construction to achieve fine-grained programmatic control over provider settings. See the
     /// [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
     /// </summary>
-    [XyzResourceType("pulumi:providers:xyz")]
+    [NamecheapResourceType("pulumi:providers:namecheap")]
     public partial class Provider : global::Pulumi.ProviderResource
     {
+        /// <summary>
+        /// The namecheap API key
+        /// </summary>
+        [Output("apiKey")]
+        public Output<string?> ApiKey { get; private set; } = null!;
+
+        /// <summary>
+        /// A registered api user for namecheap
+        /// </summary>
+        [Output("apiUser")]
+        public Output<string?> ApiUser { get; private set; } = null!;
+
+        /// <summary>
+        /// Client IP address
+        /// </summary>
+        [Output("clientIp")]
+        public Output<string?> ClientIp { get; private set; } = null!;
+
+        /// <summary>
+        /// A registered user name for namecheap
+        /// </summary>
+        [Output("userName")]
+        public Output<string?> UserName { get; private set; } = null!;
+
+
         /// <summary>
         /// Create a Provider resource with the given unique name, arguments, and options.
         /// </summary>
@@ -26,7 +51,7 @@ namespace Pulumi.Xyz
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Provider(string name, ProviderArgs? args = null, CustomResourceOptions? options = null)
-            : base("xyz", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
+            : base("namecheap", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -46,16 +71,40 @@ namespace Pulumi.Xyz
         /// This function returns a Terraform config object with terraform-namecased keys,to be used with the Terraform Module Provider.
         /// </summary>
         public global::Pulumi.Output<ProviderTerraformConfigResult> TerraformConfig()
-            => global::Pulumi.Deployment.Instance.Call<ProviderTerraformConfigResult>("pulumi:providers:xyz/terraformConfig", CallArgs.Empty, this);
+            => global::Pulumi.Deployment.Instance.Call<ProviderTerraformConfigResult>("pulumi:providers:namecheap/terraformConfig", CallArgs.Empty, this);
     }
 
     public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A region which should be used.
+        /// The namecheap API key
         /// </summary>
-        [Input("region", json: true)]
-        public Input<Pulumi.Xyz.Region.Region>? Region { get; set; }
+        [Input("apiKey")]
+        public Input<string>? ApiKey { get; set; }
+
+        /// <summary>
+        /// A registered api user for namecheap
+        /// </summary>
+        [Input("apiUser")]
+        public Input<string>? ApiUser { get; set; }
+
+        /// <summary>
+        /// Client IP address
+        /// </summary>
+        [Input("clientIp")]
+        public Input<string>? ClientIp { get; set; }
+
+        /// <summary>
+        /// Use sandbox API endpoints
+        /// </summary>
+        [Input("useSandbox", json: true)]
+        public Input<bool>? UseSandbox { get; set; }
+
+        /// <summary>
+        /// A registered user name for namecheap
+        /// </summary>
+        [Input("userName")]
+        public Input<string>? UserName { get; set; }
 
         public ProviderArgs()
         {
