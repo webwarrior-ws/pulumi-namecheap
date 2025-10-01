@@ -1,0 +1,302 @@
+{
+    "name": "namecheap",
+    "description": "A Pulumi package for creating and managing namecheap cloud resources.",
+    "keywords": [
+        "namecheap",
+        "category/cloud"
+    ],
+    "homepage": "https://www.pulumi.com",
+    "license": "Apache-2.0",
+    "attribution": "This Pulumi package is based on the [`namecheap` Terraform Provider](https://github.com/namecheap/terraform-provider-namecheap).",
+    "repository": "https://github.com/webwarrior-ws/pulumi-namecheap",
+    "publisher": "Pulumi",
+    "meta": {
+        "moduleFormat": "(.*)(?:/[^/]*)"
+    },
+    "language": {
+        "csharp": {
+            "packageReferences": {
+                "Pulumi": "3.*"
+            },
+            "compatibility": "tfbridge20",
+            "respectSchemaVersion": true
+        },
+        "go": {
+            "importBasePath": "github.com/webwarrior-ws/pulumi-namecheap/sdk/go/namecheap",
+            "generateResourceContainerTypes": true,
+            "generateExtraInputTypes": true,
+            "respectSchemaVersion": true
+        },
+        "nodejs": {
+            "packageDescription": "A Pulumi package for creating and managing namecheap cloud resources.",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/namecheap/terraform-provider-namecheap)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-namecheap` repo](https://github.com/webwarrior-ws/pulumi-namecheap/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-namecheap` repo](https://github.com/namecheap/terraform-provider-namecheap/issues).",
+            "compatibility": "tfbridge20",
+            "disableUnionOutputTypes": true,
+            "respectSchemaVersion": true
+        },
+        "python": {
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/namecheap/terraform-provider-namecheap)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-namecheap` repo](https://github.com/webwarrior-ws/pulumi-namecheap/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-namecheap` repo](https://github.com/namecheap/terraform-provider-namecheap/issues).",
+            "compatibility": "tfbridge20",
+            "respectSchemaVersion": true,
+            "pyproject": {
+                "enabled": true
+            }
+        }
+    },
+    "config": {
+        "variables": {
+            "apiKey": {
+                "type": "string",
+                "description": "The namecheap API key"
+            },
+            "apiUser": {
+                "type": "string",
+                "description": "A registered api user for namecheap"
+            },
+            "clientIp": {
+                "type": "string",
+                "description": "Client IP address"
+            },
+            "useSandbox": {
+                "type": "boolean",
+                "description": "Use sandbox API endpoints"
+            },
+            "userName": {
+                "type": "string",
+                "description": "A registered user name for namecheap"
+            }
+        },
+        "defaults": [
+            "apiKey",
+            "apiUser",
+            "userName"
+        ]
+    },
+    "types": {
+        "namecheap:index/DomainRecordsRecord:DomainRecordsRecord": {
+            "properties": {
+                "address": {
+                    "type": "string",
+                    "description": "Possible values are URL or IP address. The value for this parameter is based on record type\n"
+                },
+                "hostname": {
+                    "type": "string",
+                    "description": "Sub-domain/hostname to create the record for\n"
+                },
+                "mxPref": {
+                    "type": "integer",
+                    "description": "MX preference for host. Applicable for MX records only\n"
+                },
+                "ttl": {
+                    "type": "integer",
+                    "description": "Time to live for all record types. Possible values: any value between 60 to 60000\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Possible values: A, AAAA, ALIAS, CAA, CNAME, MX, MXE, NS, TXT, URL, URL301, FRAME\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "address",
+                "hostname",
+                "type"
+            ]
+        },
+        "namecheap:region/region:Region": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "here",
+                    "value": "HERE"
+                },
+                {
+                    "name": "overThere",
+                    "value": "OVER_THERE"
+                }
+            ]
+        }
+    },
+    "provider": {
+        "description": "The provider type for the namecheap package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
+        "properties": {
+            "apiKey": {
+                "type": "string",
+                "description": "The namecheap API key"
+            },
+            "apiUser": {
+                "type": "string",
+                "description": "A registered api user for namecheap"
+            },
+            "clientIp": {
+                "type": "string",
+                "description": "Client IP address"
+            },
+            "useSandbox": {
+                "type": "boolean",
+                "description": "Use sandbox API endpoints"
+            },
+            "userName": {
+                "type": "string",
+                "description": "A registered user name for namecheap"
+            }
+        },
+        "inputProperties": {
+            "apiKey": {
+                "type": "string",
+                "description": "The namecheap API key"
+            },
+            "apiUser": {
+                "type": "string",
+                "description": "A registered api user for namecheap"
+            },
+            "clientIp": {
+                "type": "string",
+                "description": "Client IP address"
+            },
+            "useSandbox": {
+                "type": "boolean",
+                "description": "Use sandbox API endpoints"
+            },
+            "userName": {
+                "type": "string",
+                "description": "A registered user name for namecheap"
+            }
+        },
+        "methods": {
+            "terraformConfig": "pulumi:providers:namecheap/terraformConfig"
+        }
+    },
+    "resources": {
+        "namecheap:index/domainRecords:DomainRecords": {
+            "description": "Follow Namecheap domain records guide to get detailed information about\neach argument and usage examples.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as namecheap from \"@pulumi/namecheap\";\n\nconst my_domain_com = new namecheap.DomainRecords(\"my-domain-com\", {\n    domain: \"my-domain.com\",\n    emailType: \"NONE\",\n    records: [\n        {\n            hostname: \"blog\",\n            type: \"A\",\n            address: \"10.11.12.13\",\n        },\n        {\n            hostname: \"@\",\n            type: \"ALIAS\",\n            address: \"www.testdomain.com\",\n        },\n    ],\n});\nconst my_domain2_com = new namecheap.DomainRecords(\"my-domain2-com\", {\n    domain: \"my-domain2.com\",\n    mode: \"OVERWRITE\",\n    nameservers: [\n        \"ns1.some-domain.com\",\n        \"ns2.some-domain.com\",\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_namecheap as namecheap\n\nmy_domain_com = namecheap.DomainRecords(\"my-domain-com\",\n    domain=\"my-domain.com\",\n    email_type=\"NONE\",\n    records=[\n        {\n            \"hostname\": \"blog\",\n            \"type\": \"A\",\n            \"address\": \"10.11.12.13\",\n        },\n        {\n            \"hostname\": \"@\",\n            \"type\": \"ALIAS\",\n            \"address\": \"www.testdomain.com\",\n        },\n    ])\nmy_domain2_com = namecheap.DomainRecords(\"my-domain2-com\",\n    domain=\"my-domain2.com\",\n    mode=\"OVERWRITE\",\n    nameservers=[\n        \"ns1.some-domain.com\",\n        \"ns2.some-domain.com\",\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Namecheap = Pulumi.Namecheap;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var my_domain_com = new Namecheap.DomainRecords(\"my-domain-com\", new()\n    {\n        Domain = \"my-domain.com\",\n        EmailType = \"NONE\",\n        Records = new[]\n        {\n            new Namecheap.Inputs.DomainRecordsRecordArgs\n            {\n                Hostname = \"blog\",\n                Type = \"A\",\n                Address = \"10.11.12.13\",\n            },\n            new Namecheap.Inputs.DomainRecordsRecordArgs\n            {\n                Hostname = \"@\",\n                Type = \"ALIAS\",\n                Address = \"www.testdomain.com\",\n            },\n        },\n    });\n\n    var my_domain2_com = new Namecheap.DomainRecords(\"my-domain2-com\", new()\n    {\n        Domain = \"my-domain2.com\",\n        Mode = \"OVERWRITE\",\n        Nameservers = new[]\n        {\n            \"ns1.some-domain.com\",\n            \"ns2.some-domain.com\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/webwarrior-ws/pulumi-namecheap/sdk/go/namecheap\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := namecheap.NewDomainRecords(ctx, \"my-domain-com\", \u0026namecheap.DomainRecordsArgs{\n\t\t\tDomain:    pulumi.String(\"my-domain.com\"),\n\t\t\tEmailType: pulumi.String(\"NONE\"),\n\t\t\tRecords: namecheap.DomainRecordsRecordArray{\n\t\t\t\t\u0026namecheap.DomainRecordsRecordArgs{\n\t\t\t\t\tHostname: pulumi.String(\"blog\"),\n\t\t\t\t\tType:     pulumi.String(\"A\"),\n\t\t\t\t\tAddress:  pulumi.String(\"10.11.12.13\"),\n\t\t\t\t},\n\t\t\t\t\u0026namecheap.DomainRecordsRecordArgs{\n\t\t\t\t\tHostname: pulumi.String(\"@\"),\n\t\t\t\t\tType:     pulumi.String(\"ALIAS\"),\n\t\t\t\t\tAddress:  pulumi.String(\"www.testdomain.com\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = namecheap.NewDomainRecords(ctx, \"my-domain2-com\", \u0026namecheap.DomainRecordsArgs{\n\t\t\tDomain: pulumi.String(\"my-domain2.com\"),\n\t\t\tMode:   pulumi.String(\"OVERWRITE\"),\n\t\t\tNameservers: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"ns1.some-domain.com\"),\n\t\t\t\tpulumi.String(\"ns2.some-domain.com\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.namecheap.DomainRecords;\nimport com.pulumi.namecheap.DomainRecordsArgs;\nimport com.pulumi.namecheap.inputs.DomainRecordsRecordArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var my_domain_com = new DomainRecords(\"my-domain-com\", DomainRecordsArgs.builder()\n            .domain(\"my-domain.com\")\n            .emailType(\"NONE\")\n            .records(            \n                DomainRecordsRecordArgs.builder()\n                    .hostname(\"blog\")\n                    .type(\"A\")\n                    .address(\"10.11.12.13\")\n                    .build(),\n                DomainRecordsRecordArgs.builder()\n                    .hostname(\"@\")\n                    .type(\"ALIAS\")\n                    .address(\"www.testdomain.com\")\n                    .build())\n            .build());\n\n        var my_domain2_com = new DomainRecords(\"my-domain2-com\", DomainRecordsArgs.builder()\n            .domain(\"my-domain2.com\")\n            .mode(\"OVERWRITE\")\n            .nameservers(            \n                \"ns1.some-domain.com\",\n                \"ns2.some-domain.com\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  my-domain-com:\n    type: namecheap:DomainRecords\n    properties:\n      domain: my-domain.com\n      emailType: NONE\n      records:\n        - hostname: blog\n          type: A\n          address: 10.11.12.13\n        - hostname: '@'\n          type: ALIAS\n          address: www.testdomain.com\n  my-domain2-com:\n    type: namecheap:DomainRecords\n    properties:\n      domain: my-domain2.com\n      mode: OVERWRITE\n      nameservers:\n        - ns1.some-domain.com\n        - ns2.some-domain.com\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nDomain records can be imported using by domain name, e.g.,\n\nterraform\n\n```sh\n$ pulumi import namecheap:index/domainRecords:DomainRecords main example.com\n```\n\n",
+            "properties": {
+                "domain": {
+                    "type": "string",
+                    "description": "Purchased available domain name on your account\n"
+                },
+                "emailType": {
+                    "type": "string",
+                    "description": "Possible values: NONE, FWD, MXE, MX, OX, GMAIL. Conflicts with `nameservers`\n"
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "Possible values: `MERGE` (default), `OVERWRITE` - removes all manually set records \u0026 sets only ones that were specified in TF config\n"
+                },
+                "nameservers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of nameservers. Conflicts with `email_type` and `record`\n\n\u003ca id=\"nestedblock--record\"\u003e\u003c/a\u003e\n"
+                },
+                "records": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/namecheap:index/DomainRecordsRecord:DomainRecordsRecord"
+                    },
+                    "description": "(see below for nested schema) Might contain one or more `record`\nrecords. Conflicts with `nameservers`\n"
+                }
+            },
+            "required": [
+                "domain"
+            ],
+            "inputProperties": {
+                "domain": {
+                    "type": "string",
+                    "description": "Purchased available domain name on your account\n",
+                    "willReplaceOnChanges": true
+                },
+                "emailType": {
+                    "type": "string",
+                    "description": "Possible values: NONE, FWD, MXE, MX, OX, GMAIL. Conflicts with `nameservers`\n"
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "Possible values: `MERGE` (default), `OVERWRITE` - removes all manually set records \u0026 sets only ones that were specified in TF config\n"
+                },
+                "nameservers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of nameservers. Conflicts with `email_type` and `record`\n\n\u003ca id=\"nestedblock--record\"\u003e\u003c/a\u003e\n"
+                },
+                "records": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/namecheap:index/DomainRecordsRecord:DomainRecordsRecord"
+                    },
+                    "description": "(see below for nested schema) Might contain one or more `record`\nrecords. Conflicts with `nameservers`\n"
+                }
+            },
+            "requiredInputs": [
+                "domain"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering DomainRecords resources.\n",
+                "properties": {
+                    "domain": {
+                        "type": "string",
+                        "description": "Purchased available domain name on your account\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "emailType": {
+                        "type": "string",
+                        "description": "Possible values: NONE, FWD, MXE, MX, OX, GMAIL. Conflicts with `nameservers`\n"
+                    },
+                    "mode": {
+                        "type": "string",
+                        "description": "Possible values: `MERGE` (default), `OVERWRITE` - removes all manually set records \u0026 sets only ones that were specified in TF config\n"
+                    },
+                    "nameservers": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of nameservers. Conflicts with `email_type` and `record`\n\n\u003ca id=\"nestedblock--record\"\u003e\u003c/a\u003e\n"
+                    },
+                    "records": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/namecheap:index/DomainRecordsRecord:DomainRecordsRecord"
+                        },
+                        "description": "(see below for nested schema) Might contain one or more `record`\nrecords. Conflicts with `nameservers`\n"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "functions": {
+        "pulumi:providers:namecheap/terraformConfig": {
+            "description": "This function returns a Terraform config object with terraform-namecased keys,to be used with the Terraform Module Provider.",
+            "inputs": {
+                "properties": {
+                    "__self__": {
+                        "type": "ref",
+                        "$ref": "#/provider"
+                    }
+                },
+                "type": "pulumi:providers:namecheap/terraformConfig",
+                "required": [
+                    "__self__"
+                ]
+            },
+            "outputs": {
+                "properties": {
+                    "result": {
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "type": "object"
+                    }
+                },
+                "required": [
+                    "result"
+                ],
+                "type": "object"
+            }
+        }
+    }
+}

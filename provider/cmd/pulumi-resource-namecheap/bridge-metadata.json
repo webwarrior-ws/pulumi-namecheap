@@ -1,0 +1,19 @@
+{
+    "auto-aliasing": {
+        "resources": {
+            "namecheap_domain_records": {
+                "current": "namecheap:index/domainRecords:DomainRecords",
+                "majorVersion": 1,
+                "fields": {
+                    "nameservers": {
+                        "maxItemsOne": false
+                    },
+                    "record": {
+                        "maxItemsOne": false
+                    }
+                }
+            }
+        }
+    },
+    "auto-settings": {}
+}
